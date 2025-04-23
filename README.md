@@ -11,7 +11,7 @@ Along with the data, we propose two different benchmarks:
 - **Benchmark II - Multi-view Long-term event understanding**: a second ecology-oriented benchmark aiming at identifying activities, species, number of individuals and meteorological conditions from 397 multi-view and long-term ecological events, including false positive triggers.
 
 ## Download the data
-Data will be made available for download on [zenodo](https://doi.org/10.5281/zenodo.15040901).
+Data is available for download on [zenodo](https://doi.org/10.5281/zenodo.15040901). 
 
 ## Installation
 Instructions will be provided upon code release.
