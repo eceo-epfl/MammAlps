@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="Wildlife Dataset Deep Learning AI Computer Vision Benchmark Camera Trap Video">
+    <!-- Add missing headers for video playback -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Project Homepage</title>
+    <!-- Add Font Awesome and Academicons dependencies -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <!-- Adapted from flaticon deer-silhouette.png -->
+    <link rel="shortcut icon" href="static/images/deer-silhouette.ico" type="image/x-icon">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="static/css/index.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script defer src="static/js/fontawesome.all.min.js"></script>
+    <script src="static/js/index.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            color: white;
+            padding: 0;
+            position: relative;
+            background: #1a1a1a;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        .nav-container {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        .nav-item {
+            text-align: center;
+            position: relative;
+        }
+        .nav-item a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 15px;
+        }
+        .nav-item div {
+            width: 0; 
+            height: 0; 
+            border-left: 10px solid transparent; 
+            border-right: 10px solid transparent; 
+            border-top: 10px solid white; 
+            margin: auto;
+        }
+        .hero {
+            position: relative;
+            text-align: center;
+            min-height: 400px; /* Further reduced from 450px */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #ffffff; /* Fallback color */
+            padding-top: 140px; /* Further reduced from 160px */
+            justify-content: space-around; /* Distribute content evenly */
+        }
+        
+        .hero-image-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            background: rgba(255, 255, 255, 0.453)
+        }
+        .hero-caption {
+            position: relative;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px 30px;
+            width: 80%;
+            max-width: 1200px;
+            margin: 0px auto 30px; /* Reduced from 80px auto 40px */
+            border-radius: 10px;
+            box-sizing: border-box;
+            z-index: 2;
+        }
+
+        
+        .hero-caption p {
+            font-size: 14px;
+            margin-top: 10px;
+            line-height: 1.4;
+        }
+
+        .hero-caption p a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        .hero-caption p a:hover {
+            text-decoration: underline;
+            color: #7fbcf9;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 20px auto;
+            text-align: left;
+            padding: 0 20px;
+        }
+        footer {
+            background: #edcfa2;
+            color: white;
+            padding: 10px;
+            margin-top: 10vh;
+        }
+        
+        /* Responsive styles */
+        .site-header {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: transparent;
+            box-sizing: border-box;
+        }
+        
+        .site-nav {
+            margin-right: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .location-banner {
+            position: absolute;
+            top: 140px; /* Moved down from 120px */
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.7);
+            color: #004d99;
+            padding: 12px 24px;
+            border-radius: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            font-family: 'Arial', sans-serif;
+            width: max-content;
+            max-width: 90%;
+            z-index: 5;
+        }
+        
+        .action-buttons {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            width: 90%;
+            max-width: 1200px;
+            padding: 15px;
+            box-sizing: border-box;
+            margin: auto auto 20px; /* Reduced bottom margin from 30px */
+            z-index: 2;
+        }
+        
+        .action-button {
+            display: flex;
+            align-items: center;
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+            gap: 8px;
+        }
+        
+        .action-button:hover {
+            background: #555;
+            color: white;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 1024px) {
+            .hero-caption {
+                width: 90%;
+                font-size: 28px;
+            }
+            
+            .hero-caption h1 {
+                font-size: 26px;
+            }
+            
+            .hero {
+                padding-top: 120px; /* Reduced from 130px */
+                min-height: 450px; /* Reduced from 500px */
+            }
+            
+            .hero-caption {
+                margin: 50px auto 40px; /* Reduced from 70px auto 50px */
+            }
+            
+            .location-banner {
+                top: 100px; /* Adjusted for medium screens */
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .site-header {
+                flex-direction: column;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                background: rgba(0, 0, 0, 0.6);
+                position: relative;
+                height: auto;
+            }
+            
+            .site-title {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+            
+            .site-nav {
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+            
+            .hero {
+                min-height: 500px; /* Reduced from 550px */
+                margin-top: 0;
+                justify-content: flex-start;
+                padding: 20px 0 30px;
+            }
+            
+            .hero-image-container {
+                position: absolute;
+                opacity: 0.7;
+            }
+            
+            .location-banner {
+                position: relative;
+                margin: 0 auto 20px;
+                transform: none;
+                left: auto;
+                top: auto;
+            }
+            
+            .hero-caption {
+                width: 90%;
+                margin: 20px auto; /* Reset margin for mobile */
+                padding: 15px;
+            }
+            
+            .hero-caption h1 {
+                font-size: 22px;
+                margin: 0;
+            }
+            
+            .action-buttons {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                transform: none;
+                margin: 20px auto;
+                padding: 0 15px;
+                gap: 10px;
+                background: rgba(0, 0, 0, 0.5);
+                border-radius: 10px;
+                padding: 15px 10px;
+                width: 95%;
+                box-sizing: border-box;
+            }
+            
+            .action-button {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+            
+            .hero {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                padding-bottom: 20px;
+            }
+            
+            .hero img {
+                position: absolute;
+                z-index: -1;
+                opacity: 0.7;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-item a {
+                font-size: 16px;
+                padding: 6px;
+            }
+            
+            .nav-item div {
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-top: 8px solid white;
+            }
+            
+            .hero {
+                min-height: 520px; /* Reduced from 580px */
+                padding: 60px 0 20px;
+            }
+            
+            .hero-caption h1 {
+                font-size: 18px;
+            }
+            
+            .action-buttons {
+                padding: 10px 5px;
+            }
+            
+            .action-button {
+                padding: 6px 12px;
+                font-size: 13px;
+                margin-bottom: 5px;
+                flex-basis: calc(50% - 10px);
+                justify-content: center;
+            }
+            
+            .site-nav {
+                gap: 10px;
+            }
+        }
+        
+        /* Add video styles */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin: 2.5px 0;
+        }
+        
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5px;
+            margin: 0px 0;
+        }
+        
+        @media (max-width: 1080px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-nav">
+            <div class="nav-item">
+                <a href="#overview">Overview</a>
+                <div></div>
+            </div>
+            <div class="nav-item">
+                <a href="#dataset">Dataset</a>
+                <div></div>
+            </div>
+            <div class="nav-item">
+                <a href="#getting-started">Getting started</a>
+                <div></div>
+            </div>
+        </div>
+    </header>
+    <div class="hero">
+        <div class="hero-image-container">
+            <img style="opacity: .8;"src="./static/images/background.png" alt="Background picture">
+        </div>
+
+        <div class="hero-caption">
+            <h1 style="font-size: 30px; max-width: 100%; margin: 0;">MammAlps: A multi-view video dataset of wild mammals behavior monitoring in the Swiss Alps</h1>
+            <p>
+                <a href="https://people.epfl.ch/valentin.gabeff" target="_blank">Valentin Gabeff</a>,
+                <a href="https://orcid.org/0000-0002-3456-7890" target="_blank">Haozhe Qi</a>,
+                <a href="https://orcid.org/0000-0003-4567-8901" target="_blank">Brendan Flaherty</a>,
+                <a href="https://orcid.org/0000-0004-5678-9012" target="_blank">Gencer Sumbül</a>,
+                <a href="https://orcid.org/0000-0005-6789-0123" target="_blank">Alexander Mathis</a>,
+                <a href="https://people.epfl.ch/devis.tuia" target="_blank">Devis Tuia</a>.
+            </p>
+        </div>
+        
+        <div class="action-buttons">
+            <a href="https://arxiv.org/pdf/2503.18223" target="_blank" class="action-button">
+                <i class="ai ai-arxiv"></i>
+                arXiv
+            </a>
+            <a href="https://github.com/eceo-epfl/MammAlps" target="_blank" class="action-button">
+                <i class="fab fa-github"></i>
+                Github
+            </a>
+            <!-- <a href="https://github.com/YOUR BENCHMARK REPO HERE" target="_blank" class="action-button">
+                <i class="fas fa-code"></i>
+                Training code
+            </a> -->
+            <a href="https://zenodo.org/records/15040901" target="_blank" class="action-button">
+                <i class="fas fa-download"></i>
+                Download
+            </a>
+        </div>
+    </div>
+    <section class="content">
+        <h2 id="overview">Overview</h2>
+        <div style="text-align: center; margin: 20px 0;">
+            <img src="static/images/figure_1.png" alt="Dataset Overview" style="max-width: 100%; height: auto;">
+        </div>
+        <p>
+            MammAlps is a camera trap video dataset featuring 8.5 hours of densely annotated animal recordings collected from three sites in the Swiss National Park. Each event was captured from up to three cameras simultaneously. 
+            Individual tracks were labeled from the raw videos, and both the species and the behaviors of each track was manually annotated. 
+            To better capture the nature of animal behavior, each behavioral label is represented as a pair of a high-level activity (e.g., foraging) and of one or two low-level actions (e.g., grazing). 
+            In total, the dataset includes 11 unique activities and 19 unique actions shared among 5 species.
+        </p>
+        <p>
+            In addition to the dataset, we introduce two benchmarks:
+        </p>
+        <ul style="margin: 15px 0; padding-left: 20px; color: #333;">
+            <li style="margin-bottom: 10px;">
+                <strong>Benchmark I – Multimodal species and behavior recognition:</strong> Using over 6,000 short clips, audio recordings, and background segmentation maps, the objective is to develop models for species, activity, and action recognition.
+            </li>
+            <li style="margin-bottom: 10px;">
+                <strong>Benchmark II – Multi-view long-term event understanding:</strong> The objective is to summarize 397 long-term events—seen from up to three views—to identify the recorded species, their activities, meteorological conditions, and the number of individuals.
+            </li>
+        </ul>
+        <p>
+            The MammAlps dataset is publicly released to encourage research in wildlife action and species recognition, action segmentation and localization, long-term video understanding, and multi-animal tracking.
+        </p>
+        
+        <h2 id="dataset">Dataset</h2>
+        <div class="video-grid">
+            <div class="video-container">
+                <video src="static/videos/S1_C1_E10_V0031.mp4" autoplay muted loop playsinline></video>
+            </div>
+            <div class="video-container">
+                <video src="static/videos/S1_C1_E115_V0342.mp4" autoplay muted loop playsinline></video>
+            </div>
+            <div class="video-container">
+                <video src="static/videos/S2_C2_E280_V0037.mp4" autoplay muted loop playsinline></video>
+            </div>
+            <div class="video-container">
+                <video src="static/videos/S2_C2_E394_V0135.mp4" autoplay muted loop playsinline></video>
+            </div>
+            <div class="video-container">
+                <video src="static/videos/S3_C2_E693_V0182.mp4" autoplay muted loop playsinline></video>
+            </div>
+            <div class="video-container">
+                <video src="static/videos/S3_C3_E693_V0702.mp4" autoplay muted loop playsinline></video>
+            </div>
+        </div>
+        <p style="display: block; text-align: center;">
+            <em>
+                For best viewing, zoom in.
+                Video quality has been reduced for faster loading and visualization.
+            </em>
+        </p>
+
+        <h2 id="getting-started">Getting Started</h2>
+
+        <div style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #ddd; font-family: Arial, sans-serif;">
+            <p style="font-size: 16px; line-height: 1.6; color: #333;">
+                Follow the steps below to get started:
+            </p>
+            <ol style="margin: 15px 0; padding-left: 20px; color: #333;">
+                <li style="margin-bottom: 10px;">
+                    <strong>Download the Dataset:</strong> Visit the 
+                    <a href="https://zenodo.org/records/15040901" target="_blank" style="color: #007bff; text-decoration: none;">Zenodo page</a> 
+                    to download the dataset.
+                </li>
+                <li style="margin-bottom: 10px;">
+                    <strong>Documentation (Coming soon):</strong> Check out the 
+                    <a href="https://github.com/eceo-epfl/MammAlps" target="_blank" style="color: #007bff; text-decoration: none;">GitHub repository</a> 
+                    for detailed instructions and examples.
+                </li>
+                <li style="margin-bottom: 10px;">
+                    <strong>Training models (Coming soon):</strong> Clone the training code repository and follow the setup instructions to start fine-tuning models.
+                </li>
+                <li style="margin-bottom: 10px;">
+                    <strong>Evaluation (Coming soon):</strong> Check out the evaluation instructions in the
+                    <a href="https://github.com/eceo-epfl/MammAlps" target="_blank" style="color: #007bff; text-decoration: none;">GitHub repository</a>.
+                </li>
+            </ol>
+            <p style="font-size: 14px; color: #555;">
+                If you encounter any issues, feel free to open an issue on our 
+                <a href="https://github.com/eceo-epfl/MammAlps/issues" target="_blank" style="color: #007bff; text-decoration: none;">GitHub Issues page</a>.
+            </p>
+        </div>
+
+        <h2 id="upcoming">Upcoming</h2>
+        <p>
+            We are currently processing a new round of data collected in 2024, which will be added in a future version of the dataset. This new batch will increase the number of recordings for species that were moderately seen in 2023, such as hares and foxes.
+        </p>
+        <p>
+            Additionally, we are actively working on releasing our data processing pipeline to facilitate reproducibility and to spur the development of similar datasets.
+        </p>
+                
+        <h2 id="cite">Citation and Contact</h2>         
+
+        <pre style="background-color: #fbfaf1; padding: 15px; border-radius: 5px; font-family: 'Courier New', Courier, monospace; font-size: 14px; overflow-x: auto; text-align: left;">
+        @article{gabeff2025mammalps,
+        title={MammAlps: A multi-view video behavior monitoring dataset of wild mammals in the Swiss Alps},
+        author={Gabeff, Valentin and Qi, Haozhe and Flaherty, Brendan and Sumb{\"u}l, Gencer and Mathis, Alexander and Tuia, Devis},
+        journal={arXiv preprint arXiv:2503.18223},
+        year={2025}
+        }
+        </pre>
+
+        For any personal inquiry, we invite you to reach out to Valentin Gabeff, Devis Tuia or Alexander Mathis. 
+        For any general code or data related questions, we invite you to open a github issue on our <a href="https://github.com/eceo-epfl/MammAlps/issues" target="_blank" style="color: #007bff; text-decoration: none;">GitHub Issues page</a>.
+
+    </section>
+    <footer>
+    <p>This page was built using the 
+        <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" style="color: #007bff; text-decoration: none;">Academic Project Page Template</a> 
+        which was adopted from the 
+        <a href="https://nerfies.github.io/" target="_blank" style="color: #007bff; text-decoration: none;">Nerfies project page</a>.
+    </p>
+    <p>
+        This webpage is released under the 
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode" target="_blank" style="color: #007bff; text-decoration: none;">CC BY-NC 4.0 license</a>.
+    </p>
+    </footer>
+</body>
+</html>
