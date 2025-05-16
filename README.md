@@ -10,6 +10,9 @@ Along with the data, we propose two different benchmarks:
 - **Benchmark I - Multimodal species and behavior recognition**: Based on 6`135 single animal clips, we propose a hierarchical and multimodal animal behavior recognition benchmark using audio, video and reference scene segmentation maps as inputs.
 - **Benchmark II - Multi-view Long-term event understanding**: a second ecology-oriented benchmark aiming at identifying activities, species, number of individuals and meteorological conditions from 397 multi-view and long-term ecological events, including false positive triggers.
 
+
+Check out our website for some lovely video samples: https://eceo-epfl.github.io/MammAlps/
+
 ## Download the data
 Data is available for download on [zenodo](https://doi.org/10.5281/zenodo.15040901). 
 
