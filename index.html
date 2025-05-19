@@ -109,6 +109,32 @@
             z-index: 2;
         }
 
+        .hero-description {
+            font-family: 'Courier New', Courier, monospace;
+            position: relative;
+            font-weight: bold;
+            color: rgba(26, 26, 26, 1);
+            font-size: 18px;
+            background-color: rgba(232, 244, 248, 0.7);
+            padding: 15px 20px;
+            border-radius: 2px;
+            border: 3px solid rgba(179, 217, 224, 1);
+            display: inline-block;
+            text-align: center;
+            margin: 0px auto 30px; /* Reduced from 80px auto 40px */
+            box-sizing: border-box;
+            z-index: 2;
+        }
+
+        .hero-description a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .hero-description:hover {
+            background-color: rgba(255, 252, 94, 0.7);
+            border: 3px solid rgb(255, 251, 0);
+        }
         
         .hero-caption p {
             font-size: 14px;
@@ -425,10 +451,14 @@
                 <a href="https://people.epfl.ch/valentin.gabeff" target="_blank">Valentin Gabeff</a>,
                 <a href="https://orcid.org/0009-0007-7399-923X" target="_blank">Haozhe Qi</a>,
                 <a href="https://orcid.org/0000-0003-0838-1955" target="_blank">Brendan Flaherty</a>,
-                <a href="https://orcid.org/0000-0003-3690-3052" target="_blank">Gencer Sumbül</a>,
+                <a href="https://people.epfl.ch/gencer.sumbul" target="_blank">Gencer Sumbül</a>,
                 <a href="https://orcid.org/0000-0002-3777-2202" target="_blank">Alexander Mathis</a>,
                 <a href="https://people.epfl.ch/devis.tuia" target="_blank">Devis Tuia</a>.
             </p>
+        </div>
+
+        <div class="hero-description">
+            <a href="https://cvpr.thecvf.com/virtual/2025/poster/34138" target="_blank">Presented as a highlight at <strong>CVPR 2025</strong>, Nashville</a>
         </div>
         
         <div class="action-buttons">
@@ -448,6 +478,12 @@
                 <i class="fas fa-download"></i>
                 Download
             </a>
+
+            <a href="https://cvpr.thecvf.com/virtual/2025/poster/34138" target="_blank" class="action-button">
+                <i class="fas fa-image"></i>
+                Poster
+            </a>
+
         </div>
     </div>
     <section class="content">
