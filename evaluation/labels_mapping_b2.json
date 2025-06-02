@@ -1,0 +1,36 @@
+{
+    "activities": {
+        "camera_reaction": 0,
+        "chasing": 1,
+        "courtship": 2,
+        "escaping": 3,
+        "foraging": 4,
+        "grooming": 5,
+        "marking": 6,
+        "none": 7,
+        "playing": 8,
+        "resting": 9,
+        "unknown": 10,
+        "vigilance": 11
+    },
+    "species": {
+        "fox": 0,
+        "hare": 1,
+        "none": 2,
+        "red_deer": 3,
+        "roe_deer": 4,
+        "wolf": 5
+    },
+    "env_conds": {
+        "clear": 0,
+        "overcast": 1,
+        "rainy": 2,
+        "sunny": 3
+    },
+    "individuals": {
+        "0": 0,
+        "1": 1,
+        "2": 2,
+        "3+": 3
+    }
+}

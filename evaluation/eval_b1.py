@@ -1,8 +1,5 @@
 """
-Evaluation code for Benchmark 1: Multimodal species and behavior recognition
-
-The results file should follow this format:
-
+Evaluation code for Benchmark 1 - Multimodal species and behavior recognition
 """
 
 import argparse

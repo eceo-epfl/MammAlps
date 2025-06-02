@@ -16,7 +16,7 @@ def parse_line(line: str, column_names: List) -> Dict:
 
     output_dict = dict.fromkeys(column_names)
     for key_id, (elem, key) in enumerate(zip(elems, output_dict.keys())):
-        if key_id >= 2:
+        if key_id >= 3:
             elem = np.fromstring(elem[1:-1], dtype=float, sep=",")
         else:
             elem = int(elem)
@@ -34,7 +34,7 @@ def eval_b2(results_file: str, label_names: str, tasks: List) -> None:
     print(f"B2 Evaluation performance for file: {results_file}")
     print("*************************************************")
 
-    col_names = ["id", "sample_id"]
+    col_names = ["id", "sample_id", "test_segment_id"]
     tasks_col_preds = []
     tasks_col_labels = []
     if "ActY" in tasks:

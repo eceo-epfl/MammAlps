@@ -1,0 +1,43 @@
+{
+    "activities": {
+        "camera_reaction": 0,
+        "chasing": 1,
+        "courtship": 2,
+        "escaping": 3,
+        "foraging": 4,
+        "grooming": 5,
+        "marking": 6,
+        "playing": 7,
+        "resting": 8,
+        "unknown": 9,
+        "vigilance": 10
+    },
+    "actions": {
+        "bathing": 0,
+        "defecating": 1,
+        "drinking": 2,
+        "grazing": 3,
+        "jumping": 4,
+        "laying": 5,
+        "looking_at_camera": 6,
+        "running": 7,
+        "scratching_antlers": 8,
+        "scratching_body": 9,
+        "scratching_hoof": 10,
+        "shaking_fur": 11,
+        "sniffing": 12,
+        "standing_head_down": 13,
+        "standing_head_up": 14,
+        "unknown": 15,
+        "urinating": 16,
+        "vocalizing": 17,
+        "walking": 18
+    },
+    "species": {
+        "fox": 0,
+        "hare": 1,
+        "red_deer": 2,
+        "roe_deer": 3,
+        "wolf": 4
+    }
+}
