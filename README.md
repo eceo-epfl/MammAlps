@@ -1,5 +1,6 @@
 # MammAlps - A multi-view video behavior monitoring dataset of wild mammals in the Swiss Alps
 
+_Presented as a Highlight at CVPR 2025, Nashville_.
 <p align="center">
     <img src="resources/overview.png" alt="Overview">
 </p>
@@ -9,6 +10,8 @@ MammAlps is a multimodal and multi-view dataset of wildlife behavior monitoring.
 Along with the data, we propose two different benchmarks:
 - **Benchmark I - Multimodal species and behavior recognition**: Based on 6`135 single animal clips, we propose a hierarchical and multimodal animal behavior recognition benchmark using audio, video and reference scene segmentation maps as inputs.
 - **Benchmark II - Multi-view Long-term event understanding**: a second ecology-oriented benchmark aiming at identifying activities, species, number of individuals and meteorological conditions from 397 multi-view and long-term ecological events, including false positive triggers.
+
+Check out our [website](https://eceo-epfl.github.io/MammAlps/) for more example videos.
 
 ## Download the data
 Data is available for download on [zenodo](https://doi.org/10.5281/zenodo.15040901).
