@@ -120,7 +120,7 @@ def supervision_from_json(frame_detection_results, color_by="action") -> sv.Dete
             ]
         )
     elif color_by == "individual":
-        class_id == track_id
+        class_id = track_id
     activity = np.array(
         [
             (
